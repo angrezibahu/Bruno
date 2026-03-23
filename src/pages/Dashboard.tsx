@@ -19,7 +19,7 @@ export default function Dashboard() {
   return (
     <div className="dashboard">
       <div className="greeting-card">
-        <div className="greeting-emoji">🐕</div>
+        <div className="greeting-emoji">🐾</div>
         <h2>Hey there!</h2>
         <p>
           {todaySessions.length === 0

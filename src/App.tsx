@@ -8,6 +8,7 @@ import Incidents from './pages/Incidents';
 import IncidentForm from './pages/IncidentForm';
 import History from './pages/History';
 import Settings from './pages/Settings';
+import TrainingGuide from './pages/TrainingGuide';
 import './App.css';
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
         <Route element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="programmes" element={<ProgrammeList />} />
+          <Route path="guide" element={<TrainingGuide />} />
           <Route path="programmes/:id" element={<ProgrammeDetail />} />
           <Route path="log-session" element={<LogSession />} />
           <Route path="incidents" element={<Incidents />} />

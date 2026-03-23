@@ -47,63 +47,58 @@ export default function ProgrammeDetail() {
         {programme.levels.map((level) => {
           const isComplete = programmeProgress?.completedLevels?.includes(level.level);
           const isCurrent = level.level === currentLevel;
-          const isLocked = level.level > currentLevel;
           const levelSessions = sessions?.filter((s) => s.level === level.level) || [];
 
           return (
             <div
               key={level.level}
-              className={`level-card ${isCurrent ? 'current' : ''} ${isComplete ? 'complete' : ''} ${isLocked ? 'locked' : ''}`}
+              className={`level-card ${isCurrent ? 'current' : ''} ${isComplete ? 'complete' : ''}`}
             >
               <div className="level-header">
                 <span className="level-number">
-                  {isComplete ? '✅' : isCurrent ? '🔵' : '🔒'} Level {level.level}
+                  {isComplete ? '✅' : isCurrent ? '🔵' : '⚪'} Level {level.level}
                 </span>
                 <span className="level-title">{level.title}</span>
               </div>
 
-              {(isCurrent || isComplete) && (
-                <div className="level-body">
-                  <p>{level.description}</p>
-                  <div className="criteria">
-                    <div className="criteria-item success">
-                      <strong>Success:</strong> {level.successCriteria}
-                    </div>
-                    <div className="criteria-item fail">
-                      <strong>Fail:</strong> {level.failureCriteria}
-                    </div>
-                    <div className="criteria-item info">
-                      <strong>Session:</strong> {level.sessionLength}
-                    </div>
+              <div className="level-body">
+                <p>{level.description}</p>
+                <div className="criteria">
+                  <div className="criteria-item success">
+                    <strong>Success:</strong> {level.successCriteria}
                   </div>
-
-                  {level.tips && level.tips.length > 0 && (
-                    <div className="tips">
-                      <strong>Tips:</strong>
-                      <ul>
-                        {level.tips.map((tip, i) => (
-                          <li key={i}>{tip}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {levelSessions.length > 0 && (
-                    <div className="level-sessions">
-                      <strong>{levelSessions.length} session{levelSessions.length !== 1 ? 's' : ''} logged</strong>
-                    </div>
-                  )}
-
-                  {isCurrent && (
-                    <Link
-                      to={`/log-session?programme=${programme.id}&level=${level.level}`}
-                      className="btn btn-primary"
-                    >
-                      📝 Log Session at This Level
-                    </Link>
-                  )}
+                  <div className="criteria-item fail">
+                    <strong>Fail:</strong> {level.failureCriteria}
+                  </div>
+                  <div className="criteria-item info">
+                    <strong>Session:</strong> {level.sessionLength}
+                  </div>
                 </div>
-              )}
+
+                {level.tips && level.tips.length > 0 && (
+                  <div className="tips">
+                    <strong>Tips:</strong>
+                    <ul>
+                      {level.tips.map((tip, i) => (
+                        <li key={i}>{tip}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {levelSessions.length > 0 && (
+                  <div className="level-sessions">
+                    <strong>{levelSessions.length} session{levelSessions.length !== 1 ? 's' : ''} logged</strong>
+                  </div>
+                )}
+
+                <Link
+                  to={`/log-session?programme=${programme.id}&level=${level.level}`}
+                  className="btn btn-primary"
+                >
+                  📝 Log Session at This Level
+                </Link>
+              </div>
             </div>
           );
         })}

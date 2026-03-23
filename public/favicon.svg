@@ -21,6 +21,9 @@
   <!-- Chest center lighter fur -->
   <ellipse cx="256" cy="390" rx="46" ry="62" fill="#D9974E" opacity="0.6"/>
 
+  <!-- ===== NECK (fills gap between head and body) ===== -->
+  <path d="M218 260 C218 260 228 310 230 330 C234 360 240 370 256 370 C272 370 278 360 282 330 C284 310 294 260 294 260 Q280 288 256 290 Q232 288 218 260 Z" fill="#1C1C1C"/>
+
   <!-- ===== FRONT LEGS ===== -->
   <!-- Left leg (black) -->
   <path d="M208 415 C203 428 202 450 205 465 C207 474 216 480 226 479 C236 478 242 471 243 461 C245 448 244 427 240 414 Z" fill="#1C1C1C"/>
