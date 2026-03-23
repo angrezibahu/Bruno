@@ -5,7 +5,7 @@ export const programmes: Programme[] = [
     id: 'recall',
     name: 'Recall',
     description: 'Building a reliable recall from various distractions and distances',
-    icon: '📣',
+    icon: '🐾',
     levels: [
       {
         level: 1,
@@ -58,7 +58,7 @@ export const programmes: Programme[] = [
     id: 'loose-lead',
     name: 'Loose Lead Walking',
     description: 'Teaching Bruno to walk nicely on a lead without pulling',
-    icon: '🦮',
+    icon: '🐶',
     levels: [
       {
         level: 1,
